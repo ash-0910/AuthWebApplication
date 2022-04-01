@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AuthWebApplication.Controllers
 {
-    [Authorize]
+    
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -34,6 +34,12 @@ namespace AuthWebApplication.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [Authorize]
+        public IActionResult Secret()
+        {
+            return View();
         }
     }
 }
